@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+</head>
+
+<body>
+  <h1> Τοπική αποθήκευση Math Challenge </h1>
+
+
+
+
+
+
+<div>
+<button onclick=setMode('easy')> Easy </button>
+<button onclick=setMode('medium')> Medium </button>
+
+</div>
+
+
+<hr>
+
+<div id="game-area" style="display:none;">
+  <h3 id="mode-title"></h3>
+
+<h2>
+  <span id="num1"> </span>
+  [?]
+  <span id="num2"> </span> =
+  <span id="result"></span>
+</h2>
+
+<button onclick=checkAnswer('+')> + </button>
+<button onclick=checkAnswer('-')> - </button>
+
+<p id="feedback"> </p>
+
+<script>
+
+let currentMode = '';
+
+
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('game-area').style.display="block";
+  document.getElementById('feedback').innerText = '';
+
+  if (mode == 'easy') {
+document.getElementById('mode-title').innerText = 'Επίπεδο εύκολο';
+generateEasy();
+
+  }
+
+  else if (mode = 'medium') {
+
+    document.getElementById('mode-title').innerText = 'Επίπεδο μέτρiο';
+    generateMedium();
+
+  }
+
+function generateEasy() {
+let a = Math.floor(Math.random()*10) + 1;
+let b = Math.floor(Math.random()*10) + 1;
+
+let operators = ['+','-'];
+correctOperator =operators[Math.floor(Math.random()*operators.length)];
+let res ;
+
+
+if (correctOperator === '+') {
+  res = a  + b ;
+}
+else {
+  res = a - b ;
+}
+
+document.getElementById('num1').innerText = a ;
+document.getElementById('num2').innerText = b ;
+document.getElementById('result').innerText = res;
+
+
+}
+}
+
+</script>
+
+</body>
+
+
+
+</html>
+
